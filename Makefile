@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/01/29 15:33:38 by terabu           ###   ########.fr        #
+#    Updated: 2023/01/30 06:51:36 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 SRCS = so_long.c \
-	   imput_file.c
+	   input_file.c
 OBJS = $(SRCS:.c=.o)
 
 PRINTFDIR = ./lib/ft_printf

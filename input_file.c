@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   input_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/29 16:01:00 by terabu           ###   ########.fr       */
+/*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
+/*   Updated: 2023/01/30 06:51:47 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include "so_long.h"
 #include <stdio.h>
 
-int main()
+char	*input_file(void)
 {
+	int		fd;
+	char	*filepath;
 	char	*line;
 
-	line = imput_file();
-	printf("%s\n", line);
+	filepath = "./map/1.ber";
+	fd = open(filepath, O_RDONLY);
+	line = get_next_line(fd);
+	return (line);
 }
-
-// gcc -lmlx -framework OpenGL -framework AppKit so_long.c

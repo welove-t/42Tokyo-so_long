@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/29 16:01:00 by terabu           ###   ########.fr       */
+/*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
+/*   Updated: 2023/01/30 06:51:43 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "so_long.h"
-#include <stdio.h>
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int main()
-{
-	char	*line;
+# include <unistd.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <fcntl.h>
 
-	line = imput_file();
-	printf("%s\n", line);
-}
+# include "lib/get_next_line/get_next_line.h"
 
-// gcc -lmlx -framework OpenGL -framework AppKit so_long.c
+char	*input_file(void);
+
+#endif
