@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:37:14 by terabu            #+#    #+#             */
-/*   Updated: 2022/11/08 12:44:38 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/29 15:36:36 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strldup(const char *s, size_t len)
 	return (heap);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	char	cc;
 
@@ -58,7 +58,7 @@ char	*ft_strchr(const char *s, int c)
 		return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
 	char	*heap;
 	char	*temp;
