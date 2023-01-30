@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 11:06:36 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 13:30:25 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include "mlx.h"
-
 # include "lib/get_next_line/get_next_line.h"
+# include "lib/ft_printf/ft_printf.h"
+
+# define BASE 32
 
 typedef struct s_window{
 	void	*mlx;
@@ -47,12 +49,17 @@ typedef struct s_map{
 	int		col;
 }	t_map;
 
+// input file
 void	input_file(t_map *map);
 void	get_ncount(t_map *map);
 
 // initalize
-void	initialize(t_window *win, t_item *item);
-void	init_window(t_window *win);
+void	initialize(t_window *win, t_map *map, t_item *item);
+void	init_window(t_window *win, t_map *map);
 void	init_item(t_window *win, t_item *item);
+
+// output item
+void	output_item(t_window *win, t_map *map, t_item *item);
+void	put_item(t_window *win, void *item, int w, int h);
 
 #endif

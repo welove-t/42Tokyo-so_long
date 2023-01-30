@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/01/30 11:00:48 by terabu           ###   ########.fr        #
+#    Updated: 2023/01/30 13:02:49 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 SRCS = so_long.c \
 	   initialize.c \
+	   output_item.c \
 	   input_file.c
 OBJS = $(SRCS:.c=.o)
 

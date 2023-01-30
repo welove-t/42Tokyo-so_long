@@ -6,22 +6,22 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 11:34:13 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 13:31:19 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	initialize(t_window *win, t_item *item)
+void	initialize(t_window *win, t_map *map, t_item *item)
 {
-	init_window(win);
+	init_window(win, map);
 	init_item(win, item);
 }
 
-void	init_window(t_window *win)
+void	init_window(t_window *win, t_map *map)
 {
-	win->width = 416;
-	win->height = 160;
+	win->width = map->col * BASE;
+	win->height = map->row * BASE;
 	win->mlx = mlx_init();
 	win->win = mlx_new_window(win->mlx, win->width, win->height, "test");
 }
