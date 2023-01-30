@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:37:11 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/29 15:37:16 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 13:08:32 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char	*readline(char **save)
 		nextpoint++;
 	line = ft_strldup(*save, nextpoint - *save + 1);
 	if (*nextpoint == '\n')
-		tmp = ft_strldup(nextpoint + 1, ft_strlen(nextpoint));
+		tmp = ft_strldup(nextpoint + 1, ft_strlen_gnl(nextpoint));
 	else
 		tmp = NULL;
 	free_save(save);
