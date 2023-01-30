@@ -6,45 +6,36 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 09:11:59 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 11:12:44 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
-char	**input_file(void)
+void	input_file(t_map *map)
 {
-	int		fd;
 	int		i;
-	int		ncount;
-	char	*filepath;
-	char	**line = NULL;
 
-	ncount = get_ncount();
-	filepath = "./map/1.ber";
-	fd = open(filepath, O_RDONLY);
-	line = malloc(sizeof(char *) * ncount);
+	printf("hoge\n");
+	map->filepath = "./map/1.ber";
+	get_ncount(map);
+	map->fd = open(map->filepath, O_RDONLY);
+	map->line = malloc(sizeof(char *) * map->row);
 	i = 0;
-	while (i < ncount)
+	while (i < map->row)
 	{
-
-		line[i] = get_next_line(fd);
+		map->line[i] = get_next_line(map->fd);
 		i++;
 	}
-	return (line);
 }
 
-int	get_ncount(void)
+void	get_ncount(t_map *map)
 {
 	int		cnt;
-	int		fd;
-	char	*filepath;
 
-	filepath = "./map/1.ber";
-	fd = open(filepath, O_RDONLY);
+	map->fd = open(map->filepath, O_RDONLY);
 	cnt = 0;
-	while (get_next_line(fd))
+	while (get_next_line(map->fd))
 		cnt++;
-	return (cnt);
+	map->row = cnt;
 }
