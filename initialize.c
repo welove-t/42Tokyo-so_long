@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 15:14:12 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 15:28:24 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_window(t_window *win, t_map *map)
 	win->width = map->col * BASE;
 	win->height = map->row * BASE;
 	win->mlx = mlx_init();
-	win->win = mlx_new_window(win->mlx, win->width, win->height, "test");
+	win->win = mlx_new_window(win->mlx, win->width, win->height, "so_long");
 }
 
 void	init_item(t_window *win, t_item *item)
