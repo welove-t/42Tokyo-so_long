@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 06:51:43 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 08:51:59 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # include "lib/get_next_line/get_next_line.h"
 
-char	*input_file(void);
+char	**input_file(void);
+int		get_ncount(void);
 
 #endif
