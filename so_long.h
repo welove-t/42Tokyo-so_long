@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 13:30:25 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 15:13:39 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "lib/get_next_line/get_next_line.h"
 # include "lib/ft_printf/ft_printf.h"
 
-# define BASE 32
+# define BASE 60
 
 typedef struct s_window{
 	void	*mlx;

@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:37:08 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 13:07:44 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/30 15:15:43 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE 60
 
 char	*get_next_line(int fd);
 size_t	ft_strlen_gnl(const char *str);
