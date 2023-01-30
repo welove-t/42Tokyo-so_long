@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 15:13:39 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 07:53:40 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@
 # include "lib/ft_printf/ft_printf.h"
 
 # define BASE 60
+
+// EVENT
+# define X_EVENT_KEY_PRESS			2
+# define X_EVENT_KEY_RELEASE		3
+
+// KEY
+# define KEY_ESC		53
+# define KEY_W			13
+# define KEY_A			0
+# define KEY_S			1
+# define KEY_D			2
 
 typedef struct s_window{
 	void	*mlx;
@@ -49,14 +60,20 @@ typedef struct s_map{
 	int		col;
 }	t_map;
 
+typedef struct s_player{
+	int		x;
+	int		y;
+}	t_player;
+
 // input file
 void	input_file(t_map *map);
 void	get_ncount(t_map *map);
 
 // initalize
-void	initialize(t_window *win, t_map *map, t_item *item);
+void	initialize(t_window *win, t_map *map, t_item *item, t_player *player);
 void	init_window(t_window *win, t_map *map);
 void	init_item(t_window *win, t_item *item);
+void	init_player(t_map *map, t_player *player);
 
 // output item
 void	output_item(t_window *win, t_map *map, t_item *item);
