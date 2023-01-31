@@ -6,17 +6,17 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 12:38:47 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 14:10:52 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	input_file(t_solong *map)
+void	input_file(t_solong *map, char *filepath)
 {
 	int		i;
 
-	map->filepath = "./map/1.ber";
+	map->filepath = filepath;
 	get_ncount(map);
 	map->fd = open(map->filepath, O_RDONLY);
 	map->line = malloc(sizeof(char *) * map->row);

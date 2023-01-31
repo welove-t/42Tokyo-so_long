@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 14:04:19 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 14:10:45 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_solong{
 void	check_pre(int argc, char **argv);
 
 // input file
-void	input_file(t_solong *map);
+void	input_file(t_solong *map, char *filepath);
 void	get_ncount(t_solong *map);
 
 // initalize

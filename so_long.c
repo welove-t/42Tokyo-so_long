@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 13:47:09 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 14:08:23 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_solong	solong;
 
 	check_pre(argc, argv);
-	input_file(&solong);
+	input_file(&solong, argv[1]);
 	initialize(&solong);
 	output_item(&solong);
 	mlx_hook(solong.win, X_EVENT_KEY_RELEASE, 0, &key_press, &solong);
