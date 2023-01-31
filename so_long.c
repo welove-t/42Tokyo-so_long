@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 14:08:23 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 15:20:50 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_solong	solong;
 
 	check_pre(argc, argv);
+	check_map(argv);
 	input_file(&solong, argv[1]);
 	initialize(&solong);
 	output_item(&solong);

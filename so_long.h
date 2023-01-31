@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 14:10:45 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 15:52:25 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 
 //   map
 # define ERROR_RECT		"not rectangular"
+# define ERROR_CLOSEMAP	"not close map"
 # define ERROR_WALL		"not surrounded by walls"
 # define ERROR_COLLECT	"no collect"
 # define ERROR_PLAYER	"no player"
@@ -74,6 +75,8 @@ typedef struct s_solong{
 
 // check
 void	check_pre(int argc, char **argv);
+void	check_map(char **argv);
+void	check_rect_wall(int fd, char *s);
 
 // input file
 void	input_file(t_solong *map, char *filepath);
@@ -107,4 +110,6 @@ void	print_error_msg(char const *message);
 
 // close
 void	free_array(t_solong *sl);
+void	check_error_map(char *s, int fd, const char *msg);
+
 #endif
