@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:19:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 11:01:39 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:12:36 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void	move_w(t_solong *sl)
 		else
 			return ;
 	}
-	output_item(sl);
-	init_player(sl);
+	common_process(sl);
 }
 
 void	move_d(t_solong *sl)
@@ -66,8 +65,7 @@ void	move_d(t_solong *sl)
 		else
 			return ;
 	}
-	output_item(sl);
-	init_player(sl);
+	common_process(sl);
 }
 
 void	move_s(t_solong *sl)
@@ -95,8 +93,7 @@ void	move_s(t_solong *sl)
 		else
 			return ;
 	}
-	output_item(sl);
-	init_player(sl);
+	common_process(sl);
 }
 
 void	move_a(t_solong *sl)
@@ -124,6 +121,12 @@ void	move_a(t_solong *sl)
 		else
 			return ;
 	}
+	common_process(sl);
+}
+
+void	common_process(t_solong *sl)
+{
 	output_item(sl);
 	init_player(sl);
+	print_move_cnt(sl);
 }

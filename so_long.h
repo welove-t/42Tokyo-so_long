@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 11:02:22 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:13:28 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_solong{
 	int		col;
 	int		x;
 	int		y;
+	int		m_cnt;
 	int		c_cnt;
 }	t_solong;
 
@@ -80,4 +81,8 @@ void	move_w(t_solong *sl);
 void	move_s(t_solong *sl);
 void	move_a(t_solong *sl);
 void	move_d(t_solong *sl);
+void	common_process(t_solong *sl);
+
+// print
+void	print_move_cnt(t_solong *sl);
 #endif
