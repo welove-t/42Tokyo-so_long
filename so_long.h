@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 10:17:01 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 10:31:00 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include "mlx.h"
 # include "lib/get_next_line/get_next_line.h"
@@ -54,6 +55,7 @@ typedef struct s_solong{
 	int		col;
 	int		x;
 	int		y;
+	bool	c_flg;
 }	t_solong;
 
 // input file

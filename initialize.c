@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 09:45:50 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 10:31:11 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	init_item(t_solong *s)
 	s->space = mlx_xpm_file_to_image(s->mlx, "./images/empty.xpm", &s->win_wid, &s->win_hei);
 	s->goal = mlx_xpm_file_to_image(s->mlx, "./images/goal.xpm", &s->win_wid, &s->win_hei);
 	s->collect = mlx_xpm_file_to_image(s->mlx, "./images/collect.xpm", &s->win_wid, &s->win_hei);
+	s->c_flg = false;
 }
 
 void	init_player(t_solong *s)
