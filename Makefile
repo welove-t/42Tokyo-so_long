@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/01/31 11:13:05 by terabu           ###   ########.fr        #
+#    Updated: 2023/01/31 13:43:41 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,14 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 SRCS = so_long.c \
+	   check_pre.c \
 	   initialize.c \
 	   output_item.c \
 	   output_print.c \
 	   hook.c \
 	   event_move.c \
-	   input_file.c
+	   input_file.c \
+	   close.c
 OBJS = $(SRCS:.c=.o)
 
 PRINTFDIR = ./lib/ft_printf

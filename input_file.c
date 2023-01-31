@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 09:37:12 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 12:38:47 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ void	input_file(t_solong *map)
 void	get_ncount(t_solong *map)
 {
 	int		cnt;
+	char	*s;
 
 	map->fd = open(map->filepath, O_RDONLY);
 	cnt = 0;
-	while (get_next_line(map->fd))
+	s = get_next_line(map->fd);
+	while (s)
+	{
+		free(s);
+		s = get_next_line(map->fd);
 		cnt++;
+	}
 	map->row = cnt;
 }

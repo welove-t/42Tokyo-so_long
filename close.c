@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 08:04:07 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 12:34:06 by terabu           ###   ########.fr       */
+/*   Created: 2023/01/31 11:47:31 by terabu            #+#    #+#             */
+/*   Updated: 2023/01/31 12:45:47 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_press(int keycode, t_solong *solong)
+void	free_array(t_solong *sl)
 {
-	if (keycode == KEY_W)
-		move_w(solong);
-	else if (keycode == KEY_S)
-		move_s(solong);
-	else if (keycode == KEY_A)
-		move_a(solong);
-	else if (keycode == KEY_D)
-		move_d(solong);
-	else if (keycode == KEY_ESC)
-		exit(0);
-	return (0);
-}
+	int	i;
 
-int	exit_solong(t_solong *sl)
-{
-	mlx_destroy_window(sl->mlx, sl->win);
-	free_array(sl);
-	exit(0);
+	i = 0;
+	while (i < sl->row)
+	{
+		free(sl->line[i]);
+		i++;
+	}
+	free(sl->line);
 }
