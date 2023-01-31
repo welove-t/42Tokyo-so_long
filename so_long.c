@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 07:50:34 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 09:37:25 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	main(void)
 {
-	t_window	win;
-	t_item		item;
-	t_map		map;
-	t_player	player;
+	t_solong	solong;
 
-	input_file(&map);
-	initialize(&win, &map, &item, &player);
-	output_item(&win, &map, &item);
-	mlx_loop(win.mlx);
+	input_file(&solong);
+	initialize(&solong);
+	output_item(&solong);
+	mlx_hook(solong.win, X_EVENT_KEY_RELEASE, 0, &key_press, &solong);
+	mlx_loop(solong.mlx);
 	return (0);
 }

@@ -6,37 +6,37 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 08:01:17 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 09:45:50 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	initialize(t_window *win, t_map *map, t_item *item, t_player *player)
+void	initialize(t_solong *solong)
 {
-	init_window(win, map);
-	init_item(win, item);
-	init_player(map, player);
+	init_window(solong);
+	init_item(solong);
+	init_player(solong);
 }
 
-void	init_window(t_window *win, t_map *map)
+void	init_window(t_solong *s)
 {
-	win->width = map->col * BASE;
-	win->height = map->row * BASE;
-	win->mlx = mlx_init();
-	win->win = mlx_new_window(win->mlx, win->width, win->height, "so_long");
+	s->win_wid = s->col * BASE;
+	s->win_hei = s->row * BASE;
+	s->mlx = mlx_init();
+	s->win = mlx_new_window(s->mlx, s->win_wid, s->win_hei, "so_long");
 }
 
-void	init_item(t_window *win, t_item *item)
+void	init_item(t_solong *s)
 {
-	item->player = mlx_xpm_file_to_image(win->mlx, "./images/player.xpm", &item->width, &item->height);
-	item->wall = mlx_xpm_file_to_image(win->mlx, "./images/wall.xpm", &item->width, &item->height);
-	item->space = mlx_xpm_file_to_image(win->mlx, "./images/empty.xpm", &item->width, &item->height);
-	item->goal = mlx_xpm_file_to_image(win->mlx, "./images/goal.xpm", &item->width, &item->height);
-	item->collect = mlx_xpm_file_to_image(win->mlx, "./images/collect.xpm", &item->width, &item->height);
+	s->player = mlx_xpm_file_to_image(s->mlx, "./images/player.xpm", &s->win_wid, &s->win_hei);
+	s->wall = mlx_xpm_file_to_image(s->mlx, "./images/wall.xpm", &s->win_wid, &s->win_hei);
+	s->space = mlx_xpm_file_to_image(s->mlx, "./images/empty.xpm", &s->win_wid, &s->win_hei);
+	s->goal = mlx_xpm_file_to_image(s->mlx, "./images/goal.xpm", &s->win_wid, &s->win_hei);
+	s->collect = mlx_xpm_file_to_image(s->mlx, "./images/collect.xpm", &s->win_wid, &s->win_hei);
 }
 
-void	init_player(t_map *map, t_player *player)
+void	init_player(t_solong *s)
 {
 	int	x;
 	int	y;
@@ -44,15 +44,15 @@ void	init_player(t_map *map, t_player *player)
 
 	y = 0;
 	flg = 0;
-	while (y < map->row)
+	while (y < s->row)
 	{
 		x = 0;
-		while (x < map->col)
+		while (x < s->col)
 		{
-			if (map->line[y][x] == 'P')
+			if (s->line[y][x] == 'P')
 			{
-				player->x = x;
-				player->y = y;
+				s->x = x;
+				s->y = y;
 				flg = 1;
 				break ;
 			}

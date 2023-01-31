@@ -6,13 +6,13 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/30 13:23:03 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 09:37:12 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	input_file(t_map *map)
+void	input_file(t_solong *map)
 {
 	int		i;
 
@@ -30,7 +30,7 @@ void	input_file(t_map *map)
 	}
 }
 
-void	get_ncount(t_map *map)
+void	get_ncount(t_solong *map)
 {
 	int		cnt;
 

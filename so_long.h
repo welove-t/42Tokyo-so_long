@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 07:53:40 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 09:44:33 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,48 +35,42 @@
 # define KEY_S			1
 # define KEY_D			2
 
-typedef struct s_window{
+typedef struct s_solong{
 	void	*mlx;
 	void	*win;
-	int		width;
-	int		height;
-}	t_window;
-
-typedef struct s_item{
-	int		width;
-	int		height;
+	int		win_wid;
+	int		win_hei;
+	int		img_wid;
+	int		img_hei;
 	void	*player;
 	void	*space;
 	void	*goal;
 	void	*wall;
 	void	*collect;
-}	t_item;
-
-typedef struct s_map{
 	int		fd;
 	char	*filepath;
 	char	**line;
 	int		row;
 	int		col;
-}	t_map;
-
-typedef struct s_player{
 	int		x;
 	int		y;
-}	t_player;
+}	t_solong;
 
 // input file
-void	input_file(t_map *map);
-void	get_ncount(t_map *map);
+void	input_file(t_solong *map);
+void	get_ncount(t_solong *map);
 
 // initalize
-void	initialize(t_window *win, t_map *map, t_item *item, t_player *player);
-void	init_window(t_window *win, t_map *map);
-void	init_item(t_window *win, t_item *item);
-void	init_player(t_map *map, t_player *player);
+void	initialize(t_solong *solong);
+void	init_window(t_solong *s);
+void	init_item(t_solong *s);
+void	init_player(t_solong *s);
 
 // output item
-void	output_item(t_window *win, t_map *map, t_item *item);
-void	put_item(t_window *win, void *item, int w, int h);
+void	output_item(t_solong *solong);
+void	put_item(t_solong *solong, void *item, int w, int h);
+
+// hook
+int		key_press(int keycode, t_solong *solong);
 
 #endif
