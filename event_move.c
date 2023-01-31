@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:19:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 11:12:36 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:40:43 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	move_w(t_solong *sl)
 	else if (c == 'E')
 	{
 		if (sl->c_cnt == 0)
-			exit(0);
+			exit_solong(sl);
 		else
 			return ;
 	}
@@ -61,7 +61,7 @@ void	move_d(t_solong *sl)
 	else if (c == 'E')
 	{
 		if (sl->c_cnt == 0)
-			exit(0);
+			exit_solong(sl);
 		else
 			return ;
 	}
@@ -89,7 +89,7 @@ void	move_s(t_solong *sl)
 	else if (c == 'E')
 	{
 		if (sl->c_cnt == 0)
-			exit(0);
+			exit_solong(sl);
 		else
 			return ;
 	}
@@ -117,7 +117,7 @@ void	move_a(t_solong *sl)
 	else if (c == 'E')
 	{
 		if (sl->c_cnt == 0)
-			exit(0);
+			exit_solong(sl);
 		else
 			return ;
 	}

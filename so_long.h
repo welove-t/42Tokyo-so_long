@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 11:13:28 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:37:27 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 // EVENT
 # define X_EVENT_KEY_PRESS			2
 # define X_EVENT_KEY_RELEASE		3
+# define X_EVENT_KEY_EXIT			17
 
 // KEY
 # define KEY_ESC		53
@@ -75,6 +76,7 @@ void	put_item(t_solong *solong, void *item, int w, int h);
 
 // hook
 int		key_press(int keycode, t_solong *solong);
+int		exit_solong(t_solong *sl);
 
 // move
 void	move_w(t_solong *sl);
