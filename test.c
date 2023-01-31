@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:07:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/28 12:11:00 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 08:14:11 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,4 @@ int			main(void)
 	mlx_hook(win, X_EVENT_KEY_RELEASE, 0, &key_press, &param);
 	mlx_loop(mlx);
 }
+// gcc -lmlx -framework OpenGL -framework AppKit test.c
