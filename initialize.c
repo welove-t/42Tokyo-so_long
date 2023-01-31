@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 10:31:11 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:00:07 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	initialize(t_solong *solong)
 	init_window(solong);
 	init_item(solong);
 	init_player(solong);
+	get_ccount(solong);
 }
 
 void	init_window(t_solong *s)
@@ -34,7 +35,6 @@ void	init_item(t_solong *s)
 	s->space = mlx_xpm_file_to_image(s->mlx, "./images/empty.xpm", &s->win_wid, &s->win_hei);
 	s->goal = mlx_xpm_file_to_image(s->mlx, "./images/goal.xpm", &s->win_wid, &s->win_hei);
 	s->collect = mlx_xpm_file_to_image(s->mlx, "./images/collect.xpm", &s->win_wid, &s->win_hei);
-	s->c_flg = false;
 }
 
 void	init_player(t_solong *s)
@@ -61,6 +61,26 @@ void	init_player(t_solong *s)
 		}
 		if (flg == 1)
 			break ;
+		y++;
+	}
+}
+
+void	get_ccount(t_solong *s)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	s->c_cnt = 0;
+	while (y < s->row)
+	{
+		x = 0;
+		while (x < s->col)
+		{
+			if (s->line[y][x] == 'C')
+				s->c_cnt++;
+			x++;
+		}
 		y++;
 	}
 }

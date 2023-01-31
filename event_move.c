@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:19:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 10:44:32 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:01:39 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	move_w(t_solong *sl)
 	{
 		sl->line[sl->y - 1][sl->x] = 'P';
 		sl->line[sl->y][sl->x] = '0';
-		sl->c_flg = true;
+		sl->c_cnt--;
 	}
 	else if (c == 'E')
 	{
-		if (sl->c_flg == true)
+		if (sl->c_cnt == 0)
 			exit(0);
 		else
 			return ;
@@ -57,11 +57,11 @@ void	move_d(t_solong *sl)
 	{
 		sl->line[sl->y][sl->x + 1] = 'P';
 		sl->line[sl->y][sl->x] = '0';
-		sl->c_flg = true;
+		sl->c_cnt--;
 	}
 	else if (c == 'E')
 	{
-		if (sl->c_flg == true)
+		if (sl->c_cnt == 0)
 			exit(0);
 		else
 			return ;
@@ -86,11 +86,11 @@ void	move_s(t_solong *sl)
 	{
 		sl->line[sl->y + 1][sl->x] = 'P';
 		sl->line[sl->y][sl->x] = '0';
-		sl->c_flg = true;
+		sl->c_cnt--;
 	}
 	else if (c == 'E')
 	{
-		if (sl->c_flg == true)
+		if (sl->c_cnt == 0)
 			exit(0);
 		else
 			return ;
@@ -115,11 +115,11 @@ void	move_a(t_solong *sl)
 	{
 		sl->line[sl->y][sl->x - 1] = 'P';
 		sl->line[sl->y][sl->x] = '0';
-		sl->c_flg = true;
+		sl->c_cnt--;
 	}
 	else if (c == 'E')
 	{
-		if (sl->c_flg == true)
+		if (sl->c_cnt == 0)
 			exit(0);
 		else
 			return ;

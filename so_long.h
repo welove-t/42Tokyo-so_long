@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 10:31:00 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 11:02:22 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
-# include <stdbool.h>
 # include <stdio.h>
 # include "mlx.h"
 # include "lib/get_next_line/get_next_line.h"
@@ -55,7 +54,7 @@ typedef struct s_solong{
 	int		col;
 	int		x;
 	int		y;
-	bool	c_flg;
+	int		c_cnt;
 }	t_solong;
 
 // input file
@@ -67,6 +66,7 @@ void	initialize(t_solong *solong);
 void	init_window(t_solong *s);
 void	init_item(t_solong *s);
 void	init_player(t_solong *s);
+void	get_ccount(t_solong *s);
 
 // output item
 void	output_item(t_solong *solong);
