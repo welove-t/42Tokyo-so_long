@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 09:44:33 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 10:17:01 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,9 @@ void	put_item(t_solong *solong, void *item, int w, int h);
 // hook
 int		key_press(int keycode, t_solong *solong);
 
+// move
+void	move_w(t_solong *sl);
+void	move_s(t_solong *sl);
+void	move_a(t_solong *sl);
+void	move_d(t_solong *sl);
 #endif
