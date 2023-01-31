@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/01/30 13:02:49 by terabu           ###   ########.fr        #
+#    Updated: 2023/01/31 08:07:49 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME = so_long
 SRCS = so_long.c \
 	   initialize.c \
 	   output_item.c \
+	   hook.c \
 	   input_file.c
 OBJS = $(SRCS:.c=.o)
 
