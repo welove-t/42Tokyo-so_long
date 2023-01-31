@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 11:37:27 by terabu           ###   ########.fr       */
+/*   Updated: 2023/01/31 14:04:19 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@
 # define KEY_S			1
 # define KEY_D			2
 
+// ERROR
+//   file
+# define ERROR_ARGS		"not args 2"
+# define ERROR_FILE		"not exist file"
+# define ERROR_BER		"not ber file"
+
+//   map
+# define ERROR_RECT		"not rectangular"
+# define ERROR_WALL		"not surrounded by walls"
+# define ERROR_COLLECT	"no collect"
+# define ERROR_PLAYER	"no player"
+# define ERROR_GOAL		"no goal"
+
 typedef struct s_solong{
 	void	*mlx;
 	void	*win;
@@ -58,6 +71,9 @@ typedef struct s_solong{
 	int		m_cnt;
 	int		c_cnt;
 }	t_solong;
+
+// check
+void	check_pre(int argc, char **argv);
 
 // input file
 void	input_file(t_solong *map);
@@ -87,4 +103,8 @@ void	common_process(t_solong *sl);
 
 // print
 void	print_move_cnt(t_solong *sl);
+void	print_error_msg(char const *message);
+
+// close
+void	free_array(t_solong *sl);
 #endif

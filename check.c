@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   check_pre.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 13:47:09 by terabu           ###   ########.fr       */
+/*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
+/*   Updated: 2023/01/31 14:01:07 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	check_pre(int argc, char **argv)
 {
-	t_solong	solong;
+	int	fd;
 
-	check_pre(argc, argv);
-	input_file(&solong);
-	initialize(&solong);
-	output_item(&solong);
-	mlx_hook(solong.win, X_EVENT_KEY_RELEASE, 0, &key_press, &solong);
-	mlx_hook(solong.win, X_EVENT_KEY_EXIT, 0, &exit_solong, &solong);
-	mlx_loop(solong.mlx);
-	return (0);
-}
-
-__attribute((destructor))
-static void destructor() {
-    system("leaks -q so_long");
+	if (argc != 2)
+	{
+		print_error_msg(ERROR_ARGS);
+		exit(0);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		print_error_msg(ERROR_FILE);
+		exit(0);
+	}
+	close(fd);
+	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
+	{
+		print_error_msg(ERROR_BER);
+		exit(0);
+	}
 }
