@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 13:04:49 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 14:02:47 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	initialize(t_solong *solong)
 	init_window(solong);
 	init_item(solong);
 	init_player(solong);
-	get_ccount(solong);
 	solong->m_cnt = 0;
 }
 
@@ -52,7 +51,7 @@ void	init_player(t_solong *s)
 		x = 0;
 		while (x < s->col)
 		{
-			if (s->line[y][x] == 'P')
+			if (s->line[y][x] == 'P' || s->line[y][x] == 'N')
 			{
 				s->x = x;
 				s->y = y;
@@ -67,22 +66,9 @@ void	init_player(t_solong *s)
 	}
 }
 
-void	get_ccount(t_solong *s)
+void	init_after_move(t_solong *sl)
 {
-	size_t	x;
-	int		y;
-
-	y = 0;
-	s->c_cnt = 0;
-	while (y < s->row)
-	{
-		x = 0;
-		while (x < s->col)
-		{
-			if (s->line[y][x] == 'C')
-				s->c_cnt++;
-			x++;
-		}
-		y++;
-	}
+	output_item(sl);
+	init_player(sl);
+	print_move_cnt(sl);
 }

@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 11:20:36 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 14:00:08 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	input_file(t_map *map, char *filepath)
 	get_ncount(map);
 	map->fd = open(map->filepath, O_RDONLY);
 	map->line = malloc(sizeof(char *) * map->row);
+	map->c_cnt = 0;
 	i = 0;
 	while (i < map->row)
 	{

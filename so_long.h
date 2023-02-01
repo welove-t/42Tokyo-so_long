@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 12:59:51 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 14:01:57 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	initialize(t_solong *solong);
 void	init_window(t_solong *s);
 void	init_item(t_solong *s);
 void	init_player(t_solong *s);
-void	get_ccount(t_solong *s);
+void	init_after_move(t_solong *sl);
 
 // output item
 void	output_item(t_solong *solong);
@@ -116,12 +116,17 @@ void	put_item(t_solong *solong, void *item, int w, int h);
 int		key_press(int keycode, t_solong *solong);
 int		exit_solong(t_solong *sl);
 
-// move
-void	move_w(t_solong *sl);
-void	move_s(t_solong *sl);
-void	move_a(t_solong *sl);
-void	move_d(t_solong *sl);
-void	common_process(t_solong *sl);
+// move nomal
+void	move_w(t_solong *sl, char point);
+void	move_s(t_solong *sl, char point);
+void	move_a(t_solong *sl, char point);
+void	move_d(t_solong *sl, char point);
+
+// move ongoal
+void	move_w_n(t_solong *sl);
+void	move_s_n(t_solong *sl);
+void	move_a_n(t_solong *sl);
+void	move_d_n(t_solong *sl);
 
 // print
 void	print_move_cnt(t_solong *sl);
