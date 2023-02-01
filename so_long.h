@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 15:52:25 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 08:43:45 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,33 @@ typedef struct s_solong{
 	char	*filepath;
 	char	**line;
 	int		row;
-	int		col;
+	size_t	col;
 	int		x;
 	int		y;
 	int		m_cnt;
 	int		c_cnt;
 }	t_solong;
 
+typedef struct s_map{
+	int		fd;
+	char	*filepath;
+	char	**line;
+	int		start_row;
+	int		end_row;
+	int		row;
+	size_t	col;
+}	t_map;
+
 // check
 void	check_pre(int argc, char **argv);
-void	check_map(char **argv);
-void	check_rect_wall(int fd, char *s);
+void	check_map(t_map *map);
+void	check_rect_wall(char *s, t_map *map, int y);
 
 // input file
-void	input_file(t_solong *map, char *filepath);
-void	get_ncount(t_solong *map);
+void	input_file(t_map *map, char *filepath);
+void	get_ncount(t_map *map);
+char	*gnl_skip_n(int fd);
+void	set_map_row(t_map *map);
 
 // initalize
 void	initialize(t_solong *solong);
@@ -109,7 +121,7 @@ void	print_move_cnt(t_solong *sl);
 void	print_error_msg(char const *message);
 
 // close
-void	free_array(t_solong *sl);
-void	check_error_map(char *s, int fd, const char *msg);
+void	free_array(char **line, int row);
+void	error_map(t_map *map, const char *msg);
 
 #endif
