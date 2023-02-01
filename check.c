@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 15:54:14 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 09:50:19 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,71 +35,46 @@ void	check_pre(int argc, char **argv)
 	}
 }
 
-static int	open_file(const char *filepath)
+void	check_map(t_map *map)
 {
-	int		fd;
+	int		x;
+	int		y;
+	int		row_cnt;
 
-	fd = open(filepath, O_RDONLY);
-	if (fd == -1)
+	y = 0;
+	map->col = ft_strlen(map->line[y + map->start_row]) - 1;
+	row_cnt = 0;
+	x = 0;
+	while (y + map->start_row <= map->end_row)
 	{
-		print_error_msg(ERROR_FILE);
-		exit(0);
+		printf("%s\n", map->line[y + map->start_row]);
+		if (!ft_strncmp(map->line[y + map->start_row], "\n", 1))
+			error_map(map, ERROR_CLOSEMAP);
+		check_rect_wall(map->line[y + map->start_row], map, y);
+		y++;
 	}
-	return (fd);
 }
 
-void	check_map(char **argv)
-{
-	int		fd;
-	int		flg;
-	char	*s;
-
-	fd = open_file(argv[1]);
-	s = get_next_line(fd);
-	flg = 0;
-	while (s)
-	{
-		if (!ft_strncmp(s, "\n", 1))
-		{
-			printf("k\n");
-			if (flg == 1)
-				check_error_map(s, fd, ERROR_CLOSEMAP);
-			free(s);
-			s = get_next_line(fd);
-			continue ;
-		}
-		flg = 1;
-		printf("%s\n", s);
-		check_rect_wall(fd, s);
-		free(s);
-		s = get_next_line(fd);
-	}
-	close(fd);
-}
-
-void	check_rect_wall(int fd, char *s)
+void	check_rect_wall(char *s, t_map *map, int y)
 {
 	size_t			i;
-	static size_t	len;
 
-	printf("len:%zu\n", len);
-	if (len == 0)
+	if (map->col != ft_strlen(s) - 1)
+		error_map(map, ERROR_RECT);
+	if (y == 0 || y == map->end_row)
 	{
-		len = ft_strlen(s);
 		i = 0;
 		while (s[i] != '\n')
 		{
 			if (s[i] != '1')
-				check_error_map(s, fd, ERROR_WALL);
+				error_map(map, ERROR_WALL);
 			i++;
 		}
 	}
 	else
 	{
-		if (len != ft_strlen(s))
-			check_error_map(s, fd, ERROR_RECT);
-		if (s[0] != '1' || s[len - 1 - 1] != '1')
-			check_error_map(s, fd, ERROR_WALL);
+		if (s[0] != '1' || s[map->col - 1] != '1')
+			error_map(map, ERROR_WALL);
 	}
 }
 
