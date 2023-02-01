@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 09:50:19 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 10:43:10 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,26 @@ void	check_pre(int argc, char **argv)
 
 void	check_map(t_map *map)
 {
-	int		x;
 	int		y;
 	int		row_cnt;
 
 	y = 0;
 	map->col = ft_strlen(map->line[y + map->start_row]) - 1;
 	row_cnt = 0;
-	x = 0;
 	while (y + map->start_row <= map->end_row)
 	{
 		printf("%s\n", map->line[y + map->start_row]);
 		if (!ft_strncmp(map->line[y + map->start_row], "\n", 1))
 			error_map(map, ERROR_CLOSEMAP);
 		check_rect_wall(map->line[y + map->start_row], map, y);
+		check_item(map->line[y + map->start_row], map, y);
 		y++;
 	}
 }
 
 void	check_rect_wall(char *s, t_map *map, int y)
 {
-	size_t			i;
+	size_t	i;
 
 	if (map->col != ft_strlen(s) - 1)
 		error_map(map, ERROR_RECT);
@@ -78,7 +77,30 @@ void	check_rect_wall(char *s, t_map *map, int y)
 	}
 }
 
-// void	check_item(int fd, char *s)
-// {
+void	check_item(char *s, t_map *map, int y)
+{
+	static int	i_cnt[3];
 
-// }
+	while (*s != '\n')
+	{
+		if (*s != '1' && *s != '0' && *s != 'C'
+			&& *s != 'E' && *s != 'P')
+			error_map(map, ERROR_ITEM);
+		else if (*s == 'C')
+			i_cnt[0] += 1;
+		else if (*s == 'E')
+			i_cnt[1] += 1;
+		else if (*s == 'P')
+			i_cnt[2] += 1;
+		s++;
+	}
+	if (y == map->end_row)
+	{
+		if (i_cnt[0] == 0)
+			error_map(map, ERROR_COLLECT);
+		if (i_cnt[1] != 1)
+			error_map(map, ERROR_GOAL);
+		if (i_cnt[2] != 1)
+			error_map(map, ERROR_PLAYER);
+	}
+}

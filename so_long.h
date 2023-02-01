@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 08:43:45 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 10:43:37 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,13 @@
 # define ERROR_RECT		"not rectangular"
 # define ERROR_CLOSEMAP	"not close map"
 # define ERROR_WALL		"not surrounded by walls"
+# define ERROR_ITEM		"ng item"
 # define ERROR_COLLECT	"no collect"
-# define ERROR_PLAYER	"no player"
-# define ERROR_GOAL		"no goal"
+# define ERROR_PLAYER	"not one player"
+# define ERROR_GOAL		"not one goal"
+
+//   game
+
 
 typedef struct s_solong{
 	void	*mlx;
@@ -87,6 +91,7 @@ typedef struct s_map{
 void	check_pre(int argc, char **argv);
 void	check_map(t_map *map);
 void	check_rect_wall(char *s, t_map *map, int y);
+void	check_item(char *s, t_map *map, int y);
 
 // input file
 void	input_file(t_map *map, char *filepath);
