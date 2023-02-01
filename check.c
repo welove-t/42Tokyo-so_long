@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 11:09:42 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 11:13:45 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	check_map(t_map *map)
 	row_cnt = 0;
 	while (y + map->start_row <= map->end_row)
 	{
-		printf("%s\n", map->line[y + map->start_row]);
 		if (!ft_strncmp(map->line[y + map->start_row], "\n", 1))
 			error_map(map, ERROR_CLOSEMAP);
 		check_rect_wall(map->line[y + map->start_row], map, y);
