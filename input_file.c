@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 09:44:00 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 11:20:36 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,24 @@ void	set_map_row(t_map *map)
 	map->end_row = i;
 }
 
+void	set_map_to_solong(t_map *map, t_solong *sl)
+{
+	int	y;
+	int	size;
+
+	y = 0;
+	size = map->end_row - map->start_row + 1;
+	sl->line = malloc(sizeof(char *) * size);
+	while (y + map->start_row <= map->end_row)
+	{
+		sl->line[y] = ft_strdup(map->line[y + map->start_row]);
+		y++;
+	}
+	sl->row = size;
+	sl->col = map->col;
+	sl->c_cnt = map->c_cnt;
+	free_array(map->line, map->row);
+}
 // char	*gnl_skip_n(int fd)
 // {
 // 	char	*tmp;
