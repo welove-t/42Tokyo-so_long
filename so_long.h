@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 14:01:57 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 17:04:05 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include "mlx.h"
 # include "lib/get_next_line/get_next_line.h"
@@ -53,7 +54,6 @@
 
 //   game
 
-
 typedef struct s_solong{
 	void	*mlx;
 	void	*win;
@@ -75,6 +75,7 @@ typedef struct s_solong{
 	int		y;
 	int		m_cnt;
 	int		c_cnt;
+	bool	clear;
 }	t_solong;
 
 typedef struct s_map{

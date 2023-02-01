@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 14:02:47 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 17:05:06 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	initialize(t_solong *solong)
 	init_item(solong);
 	init_player(solong);
 	solong->m_cnt = 0;
+	solong->clear = false;
 }
 
 void	init_window(t_solong *s)
@@ -71,4 +72,6 @@ void	init_after_move(t_solong *sl)
 	output_item(sl);
 	init_player(sl);
 	print_move_cnt(sl);
+	if (sl->clear == true)
+		exit_solong(sl);
 }

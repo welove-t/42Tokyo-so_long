@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 11:03:50 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 17:00:50 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,5 @@ __attribute((destructor))
 static void destructor() {
     system("leaks -q so_long");
 }
+
+// ./so_long ./map/1.ber

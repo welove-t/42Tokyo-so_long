@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:19:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 13:46:03 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 17:06:16 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 static void	judge_clear(t_solong *sl, int next_y, size_t next_x)
 {
+	sl->line[sl->y][sl->x] = '0';
+	sl->line[next_y][next_x] = 'N';
 	if (sl->c_cnt == 0)
-		exit_solong(sl);
-	else
-	{
-		sl->line[sl->y][sl->x] = '0';
-		sl->line[next_y][next_x] = 'N';
-	}
+		sl->clear = true;
 }
 
 void	move_w(t_solong *sl, char point)
