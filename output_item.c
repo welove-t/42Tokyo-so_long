@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:37:37 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 11:24:00 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 13:05:14 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	output_item(t_solong *solong)
 				put_item(solong, solong->player, j * BASE, i * BASE);
 			else if (solong->line[i][j] == 'E')
 				put_item(solong, solong->goal, j * BASE, i * BASE);
+			else if (solong->line[i][j] == 'N')
+				put_item(solong, solong->ongoal, j * BASE, i * BASE);
 			j++;
 		}
 		i++;

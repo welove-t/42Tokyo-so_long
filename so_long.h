@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 11:08:42 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 12:59:51 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_solong{
 	void	*goal;
 	void	*wall;
 	void	*collect;
+	void	*ongoal;
 	char	*filepath;
 	char	**line;
 	int		row;
