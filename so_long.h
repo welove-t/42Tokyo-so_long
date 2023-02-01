@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 10:43:37 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 11:08:42 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct s_solong{
 	void	*goal;
 	void	*wall;
 	void	*collect;
-	int		fd;
 	char	*filepath;
 	char	**line;
 	int		row;
@@ -83,6 +82,7 @@ typedef struct s_map{
 	char	**line;
 	int		start_row;
 	int		end_row;
+	int		c_cnt;
 	int		row;
 	size_t	col;
 }	t_map;
@@ -98,6 +98,7 @@ void	input_file(t_map *map, char *filepath);
 void	get_ncount(t_map *map);
 char	*gnl_skip_n(int fd);
 void	set_map_row(t_map *map);
+void	set_map_to_solong(t_map *map, t_solong *sl);
 
 // initalize
 void	initialize(t_solong *solong);

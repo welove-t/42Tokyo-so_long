@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 10:43:10 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 11:09:42 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	check_rect_wall(char *s, t_map *map, int y)
 
 void	check_item(char *s, t_map *map, int y)
 {
-	static int	i_cnt[3];
+	static int	i_cnt[2];
 
 	while (*s != '\n')
 	{
@@ -87,20 +87,20 @@ void	check_item(char *s, t_map *map, int y)
 			&& *s != 'E' && *s != 'P')
 			error_map(map, ERROR_ITEM);
 		else if (*s == 'C')
-			i_cnt[0] += 1;
+			map->c_cnt += 1;
 		else if (*s == 'E')
-			i_cnt[1] += 1;
+			i_cnt[0] += 1;
 		else if (*s == 'P')
-			i_cnt[2] += 1;
+			i_cnt[1] += 1;
 		s++;
 	}
 	if (y == map->end_row)
 	{
-		if (i_cnt[0] == 0)
+		if (map->c_cnt == 0)
 			error_map(map, ERROR_COLLECT);
-		if (i_cnt[1] != 1)
+		if (i_cnt[0] != 1)
 			error_map(map, ERROR_GOAL);
-		if (i_cnt[2] != 1)
+		if (i_cnt[1] != 1)
 			error_map(map, ERROR_PLAYER);
 	}
 }
