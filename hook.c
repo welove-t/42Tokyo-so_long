@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:04:07 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 12:34:06 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 07:38:38 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	key_press(int keycode, t_solong *solong)
 int	exit_solong(t_solong *sl)
 {
 	mlx_destroy_window(sl->mlx, sl->win);
-	free_array(sl);
+	free_array(sl->line, sl->row);
 	exit(0);
 }

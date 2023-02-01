@@ -6,29 +6,28 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:47:31 by terabu            #+#    #+#             */
-/*   Updated: 2023/01/31 15:32:38 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/01 07:42:10 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_array(t_solong *sl)
+void	free_array(char **line, int row)
 {
 	int	i;
 
 	i = 0;
-	while (i < sl->row)
+	while (i < row)
 	{
-		free(sl->line[i]);
+		free(line[i]);
 		i++;
 	}
-	free(sl->line);
+	free(line);
 }
 
-void	check_error_map(char *s, int fd, const char *msg)
+void	error_map(t_map *map, const char *msg)
 {
-	free(s);
-	close(fd);
+	free_array(map->line, map->row);
 	print_error_msg(msg);
 	exit(0);
 }
