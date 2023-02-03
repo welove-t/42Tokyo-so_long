@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 17:04:05 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/03 13:35:20 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,23 @@ typedef struct s_map{
 	size_t	col;
 }	t_map;
 
+typedef struct s_track{
+	int		x;
+	int		y;
+	char	**line;
+}	t_track;
+
 // check
 void	check_pre(int argc, char **argv);
 void	check_map(t_map *map);
 void	check_rect_wall(char *s, t_map *map, int y);
 void	check_item(char *s, t_map *map, int y);
+
+// playable
+void	check_playable(t_solong *sl);
+void	check_goal(t_track *bt);
+void	init_dic(int *dic);
+int		dfs(int i, size_t j, t_track *bt, int *dic);
 
 // input file
 void	input_file(t_map *map, char *filepath);

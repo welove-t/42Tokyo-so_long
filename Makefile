@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/02/01 13:46:47 by terabu           ###   ########.fr        #
+#    Updated: 2023/02/03 12:26:15 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 SRCS = so_long.c \
 	   check.c \
+	   check_playable.c \
+	   back_track.c \
 	   initialize.c \
 	   output_item.c \
 	   output_print.c \
