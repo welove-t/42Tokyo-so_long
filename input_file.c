@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 14:00:08 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/03 10:35:37 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ void	set_map_to_solong(t_map *map, t_solong *sl)
 	sl->c_cnt = map->c_cnt;
 	free_array(map->line, map->row);
 }
+
+// void	set_solong_to_bt(t_solong *sl)
+// {
+
+// }
 // char	*gnl_skip_n(int fd)
 // {
 // 	char	*tmp;

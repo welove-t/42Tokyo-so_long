@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 17:00:50 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/03 13:34:13 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	check_map(&map);
 	set_map_to_solong(&map, &solong);
 	initialize(&solong);
+	check_playable(&solong);
+	printf("ok!\n");
 	output_item(&solong);
 	mlx_hook(solong.win, X_EVENT_KEY_RELEASE, 0, &key_press, &solong);
 	mlx_hook(solong.win, X_EVENT_KEY_EXIT, 0, &exit_solong, &solong);
