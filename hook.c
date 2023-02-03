@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:04:07 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 14:01:33 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/03 13:31:43 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	key_press(int keycode, t_solong *sl)
 	else if (keycode == KEY_D)
 		move_d(sl, point);
 	else if (keycode == KEY_ESC)
-		exit(0);
+		exit_solong(sl);
 	return (0);
 }
 
