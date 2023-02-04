@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 11:36:47 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 12:36:41 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@
 # define ERROR_BER		"not ber file"
 
 //   map
-# define ERROR_RECT		"not rectangular"
-# define ERROR_CLOSEMAP	"not close map"
-# define ERROR_WALL		"not surrounded by walls"
-# define ERROR_ITEM		"ng item"
-# define ERROR_COLLECT	"no collect"
-# define ERROR_PLAYER	"not one player"
-# define ERROR_GOAL		"not one goal"
-
-//   game
+# define ERROR_RECT			"not rectangular"
+# define ERROR_CLOSEMAP		"not close map"
+# define ERROR_WALL			"not surrounded by walls"
+# define ERROR_ITEM			"ng item"
+# define ERROR_COLLECT		"no collect"
+# define ERROR_PLAYER		"not one player"
+# define ERROR_GOAL			"not one goal"
+# define PLAYABLE_GOAL		"not playable(can't reach the goal)"
+# define PLAYABLE_COLLECT	"not playable(can't get all collect)"
 
 typedef struct s_solong{
 	void	*mlx;
@@ -92,6 +92,7 @@ typedef struct s_map{
 typedef struct s_track{
 	int		x;
 	int		y;
+	int		c_cnt;
 	char	**line;
 }	t_track;
 
@@ -104,10 +105,10 @@ void	check_item(char *s, t_map *map, int y);
 // playable
 void	check_playable(t_solong *sl);
 void	check_goal(t_track bt);
-void	check_collect(t_track bt, t_track tmp, t_solong *sl);
+void	check_collect(t_track bt);
 void	init_dic(int *dic);
 int		dfs_goal(int i, size_t j, t_track *bt);
-int		dfs_collect(int i, size_t j, t_track *bt, int *dic);
+int		dfs_collect(int i, size_t j, t_track *bt);
 
 // input file
 void	input_file(t_map *map, char *filepath);
@@ -149,6 +150,6 @@ void	print_error_msg(char const *message);
 
 // close
 void	free_array(char **line, int row);
-void	error_map(t_map *map, const char *msg);
+void	error_map(char **line, int row, const char *msg);
 
 #endif
