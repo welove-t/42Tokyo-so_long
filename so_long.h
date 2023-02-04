@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 12:41:49 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 13:14:39 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@
 # define ERROR_GOAL			"not one goal"
 # define PLAYABLE_GOAL		"not playable(can't reach the goal)"
 # define PLAYABLE_COLLECT	"not playable(can't get all collect)"
+
+// EXTENTION
+# define EXTENTION	".ber"
 
 typedef struct s_solong{
 	void	*mlx;
