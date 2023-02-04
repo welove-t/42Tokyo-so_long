@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 16:07:15 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 16:11:07 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	input_file(t_map *map, char *filepath)
 
 	map->filepath = filepath;
 	get_ncount(map);
-	if (map->row)
+	if (!(map->row))
 	{
 		print_error_msg(ERROR_EMPTY);
 		exit(0);
