@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 12:36:41 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 12:41:49 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ void	check_item(char *s, t_map *map, int y);
 
 // playable
 void	check_playable(t_solong *sl);
-void	check_goal(t_track bt);
-void	check_collect(t_track bt);
+void	check_goal(t_solong *sl);
+void	check_collect(t_solong *sl);
 void	init_dic(int *dic);
 int		dfs_goal(int i, size_t j, t_track *bt);
 int		dfs_collect(int i, size_t j, t_track *bt);

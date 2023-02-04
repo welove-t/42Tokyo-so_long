@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 08:18:41 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 11:32:08 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 12:43:50 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,38 @@ int	dfs_goal(int i, size_t j, t_track *bt)
 	}
 	return (0);
 }
+
+int	dfs_collect(int i, size_t j, t_track *bt)
+{
+	int		dir;
+	size_t	nij[2];
+
+	if (bt->line[i][j] == 'C')
+	{
+		if (!(--bt->c_cnt))
+			return (1);
+		bt->line[i][j] = '0';
+	}
+	bt->line[i][j] = 'x';
+	dir = 0;
+	while (dir < 4)
+	{
+		nij[0] = (size_t)i;
+		nij[1] = j;
+		if (go_next(dir, nij, bt) != -1)
+		{
+			if (dfs_collect(nij[0], nij[1], bt))
+				return (1);
+		}
+		dir++;
+	}
+	return (0);
+}
+
+// for (int s = 0; s < 5; s++)
+// 	printf("%s", bt->line[s]);
+// putchar('\n');
+
 
 // int	dfs_goal(int i, size_t j, t_track *bt, int *dic)
 // {
