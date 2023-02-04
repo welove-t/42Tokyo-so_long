@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 16:01:24 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 17:30:18 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@
 # define ERROR_GOAL			"not one goal"
 # define PLAYABLE_GOAL		"not playable(can't reach the goal)"
 # define PLAYABLE_COLLECT	"not playable(can't get all collect)"
+
+//   system
+# define ERROR_MALLOC		"fail malloc"
+# define ERROR_READ			"fail read"
 
 // const
 # define EXTENTION	".ber"
@@ -155,8 +159,13 @@ void	move_d_n(t_solong *sl);
 void	print_move_cnt(t_solong *sl);
 void	print_error_msg(char const *message);
 
+// error
+void	error_map(char **line, int row, const char *msg);
+void	error_file(int fd, char *s, const char *msg);
+void	error_malloc_array(char **s, int i);
+
 // close
 void	free_array(char **line, int row);
-void	error_map(char **line, int row, const char *msg);
+void	exit_error(const char *message);
 
 #endif

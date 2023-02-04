@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/02/03 12:26:15 by terabu           ###   ########.fr        #
+#    Updated: 2023/02/04 16:55:15 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = so_long.c \
 	   hook.c \
 	   move.c \
 	   input_file.c \
+	   error.c \
 	   close.c
 OBJS = $(SRCS:.c=.o)
 

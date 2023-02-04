@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 08:18:41 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 12:43:00 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 16:50:21 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,13 @@ void	check_goal(t_solong *sl)
 
 	y = 0;
 	track.line = malloc(sizeof(char *) * sl->row);
+	if (track.line == NULL)
+		exit_error(ERROR_MALLOC);
 	while (y < sl->row)
 	{
 		track.line[y] = ft_strdup(sl->line[y]);
+		if (track.line[y] == NULL)
+			error_malloc_array(track.line, y);
 		y++;
 	}
 	track.x = sl->x;
@@ -45,9 +49,13 @@ void	check_collect(t_solong *sl)
 
 	y = 0;
 	track.line = malloc(sizeof(char *) * sl->row);
+	if (track.line == NULL)
+		exit_error(ERROR_MALLOC);
 	while (y < sl->row)
 	{
 		track.line[y] = ft_strdup(sl->line[y]);
+		if (track.line[y] == NULL)
+			error_malloc_array(track.line, y);
 		y++;
 	}
 	track.x = sl->x;
@@ -57,5 +65,4 @@ void	check_collect(t_solong *sl)
 	if (!(dfs_goal(track.y, track.x, &track)))
 		error_map(track.line, sl->row, PLAYABLE_COLLECT);
 	free_array(track.line, sl->row);
-
 }

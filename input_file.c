@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 16:11:07 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 17:30:40 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@ void	input_file(t_map *map, char *filepath)
 	map->filepath = filepath;
 	get_ncount(map);
 	if (!(map->row))
-	{
-		print_error_msg(ERROR_EMPTY);
-		exit(0);
-	}
+		exit_error(ERROR_EMPTY);
 	map->fd = open_file(map->filepath);
 	map->line = malloc(sizeof(char *) * map->row);
+	if (map->line == NULL)
+		exit_error(ERROR_MALLOC);
 	map->c_cnt = 0;
 	i = 0;
 	while (i < map->row)
 	{
 		map->line[i] = get_next_line(map->fd);
+		if (map->line[i] == NULL)
+			error_malloc_array(map->line, i);
 		i++;
 	}
 	set_map_row(map);
@@ -38,24 +39,27 @@ void	input_file(t_map *map, char *filepath)
 void	get_ncount(t_map *map)
 {
 	int		cnt;
-	char	*s;
+	int		buf_size;
+	char	*buf;
+	char	*tmp;
 
 	map->fd = open_file(map->filepath);
+	buf_size = (MAX_COL + 1) * (MAX_ROW);
+	buf = malloc(sizeof(char) * buf_size);
+	if (buf == NULL)
+		exit_error(ERROR_MALLOC);
+	if (read(map->fd, buf, buf_size) == -1)
+		exit_error(ERROR_READ);
+	tmp = buf;
 	cnt = 0;
-	s = get_next_line(map->fd);
-	while (s)
+	while (*tmp)
 	{
-		cnt++;
-		if (ft_strlen(s) > MAX_COL || cnt > MAX_ROW)
-		{
-			free(s);
-			close(map->fd);
-			print_error_msg(ERROR_BIG_MAP);
-			exit(0);
-		}
-		free(s);
-		s = get_next_line(map->fd);
+		if (*tmp == '\n')
+			cnt++;
+		tmp++;
 	}
+	printf("%d\n",cnt);
+	free(buf);
 	map->row = cnt;
 	close(map->fd);
 }

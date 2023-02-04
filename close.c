@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:47:31 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 12:28:13 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 17:32:14 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ void	free_array(char **line, int row)
 	free(line);
 }
 
-void	error_map(char **line, int row, const char *msg)
+void	exit_error(const char *message)
 {
-	free_array(line, row);
-	print_error_msg(msg);
+	print_error_msg(message);
 	exit(0);
 }
 
