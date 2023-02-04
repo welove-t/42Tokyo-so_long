@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 13:14:39 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 16:01:24 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 # define ERROR_BER		"not ber file"
 
 //   map
+# define ERROR_BIG_MAP		"map too big"
+# define ERROR_EMPTY		"map empty"
 # define ERROR_RECT			"not rectangular"
 # define ERROR_CLOSEMAP		"not close map"
 # define ERROR_WALL			"not surrounded by walls"
@@ -54,8 +56,10 @@
 # define PLAYABLE_GOAL		"not playable(can't reach the goal)"
 # define PLAYABLE_COLLECT	"not playable(can't get all collect)"
 
-// EXTENTION
+// const
 # define EXTENTION	".ber"
+# define MAX_COL	50
+# define MAX_ROW	25
 
 typedef struct s_solong{
 	void	*mlx;
@@ -116,9 +120,9 @@ int		dfs_collect(int i, size_t j, t_track *bt);
 // input file
 void	input_file(t_map *map, char *filepath);
 void	get_ncount(t_map *map);
-char	*gnl_skip_n(int fd);
 void	set_map_row(t_map *map);
 void	set_map_to_solong(t_map *map, t_solong *sl);
+int		open_file(char *filepath);
 
 // initalize
 void	initialize(t_solong *solong);

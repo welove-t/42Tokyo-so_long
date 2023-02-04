@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/03 10:35:37 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 16:07:15 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ void	input_file(t_map *map, char *filepath)
 
 	map->filepath = filepath;
 	get_ncount(map);
-	map->fd = open(map->filepath, O_RDONLY);
+	if (map->row)
+	{
+		print_error_msg(ERROR_EMPTY);
+		exit(0);
+	}
+	map->fd = open_file(map->filepath);
 	map->line = malloc(sizeof(char *) * map->row);
 	map->c_cnt = 0;
 	i = 0;
@@ -35,14 +40,21 @@ void	get_ncount(t_map *map)
 	int		cnt;
 	char	*s;
 
-	map->fd = open(map->filepath, O_RDONLY);
+	map->fd = open_file(map->filepath);
 	cnt = 0;
 	s = get_next_line(map->fd);
 	while (s)
 	{
+		cnt++;
+		if (ft_strlen(s) > MAX_COL || cnt > MAX_ROW)
+		{
+			free(s);
+			close(map->fd);
+			print_error_msg(ERROR_BIG_MAP);
+			exit(0);
+		}
 		free(s);
 		s = get_next_line(map->fd);
-		cnt++;
 	}
 	map->row = cnt;
 	close(map->fd);
@@ -81,6 +93,18 @@ void	set_map_to_solong(t_map *map, t_solong *sl)
 	free_array(map->line, map->row);
 }
 
+int	open_file(char *filepath)
+{
+	int	fd;
+
+	fd = open(filepath, O_RDONLY);
+	if (fd == -1)
+	{
+		print_error_msg(ERROR_FILE);
+		exit(0);
+	}
+	return (fd);
+}
 // void	set_solong_to_bt(t_solong *sl)
 // {
 

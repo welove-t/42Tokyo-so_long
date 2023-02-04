@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 13:49:32 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/04 16:03:11 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,7 @@ void	check_pre(int argc, char **argv)
 		print_error_msg(ERROR_ARGS);
 		exit(0);
 	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		print_error_msg(ERROR_FILE);
-		exit(0);
-	}
+	fd = open_file(argv[1]);
 	close(fd);
 	p = ft_strrchr(argv[1], '.');
 	if (ft_strncmp(EXTENTION, p, 5))
