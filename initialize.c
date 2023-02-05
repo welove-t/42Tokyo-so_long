@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 17:05:06 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 13:40:25 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,36 @@ void	initialize(t_solong *solong)
 
 void	init_window(t_solong *s)
 {
-	s->win_wid = s->col * BASE;
-	s->win_hei = s->row * BASE;
+	s->win_w = s->col * BASE;
+	s->win_h = s->row * BASE;
 	s->mlx = mlx_init();
-	s->win = mlx_new_window(s->mlx, s->win_wid, s->win_hei, "so_long");
+	if (s->mlx == NULL)
+		exit_error(ERROR_MLX);
+	s->win = mlx_new_window(s->mlx, s->win_w, s->win_h, "so_long");
+	if (s->win == NULL)
+		exit_error(ERROR_MLX);
 }
 
 void	init_item(t_solong *s)
 {
-	s->player = mlx_xpm_file_to_image(s->mlx, "./images/player.xpm", &s->win_wid, &s->win_hei);
-	s->wall = mlx_xpm_file_to_image(s->mlx, "./images/wall.xpm", &s->win_wid, &s->win_hei);
-	s->space = mlx_xpm_file_to_image(s->mlx, "./images/empty.xpm", &s->win_wid, &s->win_hei);
-	s->goal = mlx_xpm_file_to_image(s->mlx, "./images/goal.xpm", &s->win_wid, &s->win_hei);
-	s->collect = mlx_xpm_file_to_image(s->mlx, "./images/collect.xpm", &s->win_wid, &s->win_hei);
-	s->ongoal = mlx_xpm_file_to_image(s->mlx, "./images/on_goal.xpm", &s->win_wid, &s->win_hei);
+	s->player = mlx_xpm_file_to_image(s->mlx, DIR_P, &s->win_w, &s->win_h);
+	if (s->player == NULL)
+		exit_error(ERROR_MLX);
+	s->wall = mlx_xpm_file_to_image(s->mlx, DIR_W, &s->win_w, &s->win_h);
+	if (s->wall == NULL)
+		exit_error(ERROR_MLX);
+	s->space = mlx_xpm_file_to_image(s->mlx, DIR_E, &s->win_w, &s->win_h);
+	if (s->space == NULL)
+		exit_error(ERROR_MLX);
+	s->goal = mlx_xpm_file_to_image(s->mlx, DIR_G, &s->win_w, &s->win_h);
+	if (s->goal == NULL)
+		exit_error(ERROR_MLX);
+	s->collect = mlx_xpm_file_to_image(s->mlx, DIR_C, &s->win_w, &s->win_h);
+	if (s->collect == NULL)
+		exit_error(ERROR_MLX);
+	s->ongoal = mlx_xpm_file_to_image(s->mlx, DIR_O, &s->win_w, &s->win_h);
+	if (s->ongoal == NULL)
+		exit_error(ERROR_MLX);
 }
 
 void	init_player(t_solong *s)

@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 10:47:14 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 13:41:08 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,27 @@
 # define PLAYABLE_COLLECT	"not playable(can't get all collect)"
 
 //   system
-# define ERROR_MALLOC		"fail malloc"
-# define ERROR_READ			"fail read"
+# define ERROR_MALLOC		"error malloc"
+# define ERROR_READ			"error read"
+# define ERROR_MLX			"error mlx"
 
 // const
 # define EXTENTION		".ber"
 # define MAX_FILE_ROW	999
 # define MAX_MAP_COL	50
 # define MAX_MAP_ROW	25
+# define DIR_P			"./images/player.xpm"
+# define DIR_W			"./images/wall.xpm"
+# define DIR_E			"./images/empty.xpm"
+# define DIR_G			"./images/goal.xpm"
+# define DIR_C			"./images/collect.xpm"
+# define DIR_O			"./images/on_goal.xpm"
 
 typedef struct s_solong{
 	void	*mlx;
 	void	*win;
-	int		win_wid;
-	int		win_hei;
+	int		win_w;
+	int		win_h;
 	int		img_wid;
 	int		img_hei;
 	void	*player;
@@ -109,13 +116,14 @@ typedef struct s_track{
 }	t_track;
 
 // check
+// check map
 void	check_pre(int argc, char **argv);
 void	check_map(t_map *map);
 void	check_rect_wall(char *s, t_map *map, int y);
 void	check_item(char *s, t_map *map, int y);
 void	set_nrow_check_map_size(char *buf, int *set_row);
 
-// playable
+// check playable
 void	check_playable(t_solong *sl);
 void	check_goal(t_solong *sl);
 void	check_collect(t_solong *sl);
