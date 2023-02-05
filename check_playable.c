@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 08:18:41 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 16:50:21 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 16:08:03 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	check_collect(t_solong *sl)
 	track.y = sl->y;
 	track.line[track.y][track.x] = '0';
 	track.c_cnt = sl->c_cnt;
-	if (!(dfs_goal(track.y, track.x, &track)))
+	if (!(dfs_collect(track.y, track.x, &track)))
 		error_map(track.line, sl->row, PLAYABLE_COLLECT);
 	free_array(track.line, sl->row);
 }
