@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 17:30:18 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 10:47:14 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@
 # define ERROR_READ			"fail read"
 
 // const
-# define EXTENTION	".ber"
-# define MAX_COL	50
-# define MAX_ROW	25
+# define EXTENTION		".ber"
+# define MAX_FILE_ROW	999
+# define MAX_MAP_COL	50
+# define MAX_MAP_ROW	25
 
 typedef struct s_solong{
 	void	*mlx;
@@ -112,6 +113,7 @@ void	check_pre(int argc, char **argv);
 void	check_map(t_map *map);
 void	check_rect_wall(char *s, t_map *map, int y);
 void	check_item(char *s, t_map *map, int y);
+void	set_nrow_check_map_size(char *buf, int *set_row);
 
 // playable
 void	check_playable(t_solong *sl);

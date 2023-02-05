@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 17:30:40 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 10:48:17 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,18 @@ void	input_file(t_map *map, char *filepath)
 
 void	get_ncount(t_map *map)
 {
-	int		cnt;
 	int		buf_size;
 	char	*buf;
-	char	*tmp;
 
 	map->fd = open_file(map->filepath);
-	buf_size = (MAX_COL + 1) * (MAX_ROW);
+	buf_size = (MAX_FILE_ROW + 1) * (MAX_MAP_COL + 1);
 	buf = malloc(sizeof(char) * buf_size);
 	if (buf == NULL)
 		exit_error(ERROR_MALLOC);
 	if (read(map->fd, buf, buf_size) == -1)
 		exit_error(ERROR_READ);
-	tmp = buf;
-	cnt = 0;
-	while (*tmp)
-	{
-		if (*tmp == '\n')
-			cnt++;
-		tmp++;
-	}
-	printf("%d\n",cnt);
+	set_nrow_check_map_size(buf, &map->row);
 	free(buf);
-	map->row = cnt;
 	close(map->fd);
 }
 
@@ -89,6 +78,8 @@ void	set_map_to_solong(t_map *map, t_solong *sl)
 	while (y + map->start_row <= map->end_row)
 	{
 		sl->line[y] = ft_strdup(map->line[y + map->start_row]);
+		if (sl->line[y] == NULL)
+			error_malloc_array(sl->line, y);
 		y++;
 	}
 	sl->row = size;

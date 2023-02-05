@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 16:52:47 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 10:46:54 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,32 @@ void	check_item(char *s, t_map *map, int y)
 		if (i_cnt[1] != 1)
 			error_map(map->line, map->row, ERROR_PLAYER);
 	}
+}
+
+void	set_nrow_check_map_size(char *buf, int *set_row)
+{
+	int		row_cnt;
+	int		col_cnt;
+	char	*tmp;
+
+	row_cnt = 0;
+	col_cnt = 0;
+	tmp = buf;
+	while (*tmp)
+	{
+		if (*tmp == '\n')
+		{
+			row_cnt++;
+			col_cnt = 0;
+		}
+		else
+			col_cnt++;
+		if (col_cnt > MAX_MAP_COL || row_cnt > MAX_FILE_ROW)
+		{
+			free(buf);
+			exit_error(ERROR_BIG_MAP);
+		}
+		tmp++;
+	}
+	*set_row = row_cnt;
 }
