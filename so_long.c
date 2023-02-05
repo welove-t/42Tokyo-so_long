@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:17:21 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/03 13:34:13 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 15:52:34 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	set_map_to_solong(&map, &solong);
 	initialize(&solong);
 	check_playable(&solong);
-	printf("ok!\n");
 	output_item(&solong);
 	mlx_hook(solong.win, X_EVENT_KEY_RELEASE, 0, &key_press, &solong);
 	mlx_hook(solong.win, X_EVENT_KEY_EXIT, 0, &exit_solong, &solong);
@@ -31,9 +30,9 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-__attribute((destructor))
-static void destructor() {
-    system("leaks -q so_long");
-}
+// __attribute((destructor))
+// static void destructor() {
+//     system("leaks -q so_long");
+// }
 
 // ./so_long ./map/1.ber

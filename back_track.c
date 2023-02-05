@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 08:18:41 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 14:22:35 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:56:58 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,65 +63,6 @@ int	dfs_collect(int i, int j, t_track *bt)
 	}
 	return (0);
 }
-
-// for (int s = 0; s < 5; s++)
-// 	printf("%s", bt->line[s]);
-// putchar('\n');
-
-
-// int	dfs_goal(int i, size_t j, t_track *bt, int *dic)
-// {
-// 	int	dir;
-
-// 	printf("point(%zu, %d)\n",j, i);
-// 	for (int s = 0; s < 5; s++)
-// 		printf("%s", bt->line[s]);
-// 	if (bt->line[i][j] == 'E')
-// 		return (1);
-// 	dir = 0;
-// 	bt->line[i][j] = 'x';
-// 	while (dir < 4)
-// 	{
-// 		printf("  dic: %d %d %d %d\n", dic[0], dic[1], dic[2], dic[3]);
-// 		if (can_go(dir, (size_t)i, j, bt) && dic[dir] != 1)
-// 		{
-// 			go_next(dir, &i, &j, dic);
-// 			if (dfs_goal(i, j, bt, dic))
-// 				return (1);
-// 		}
-// 		dir++;
-// 	}
-// 	bt->line[i][j] = '0';
-// 	init_dic(dic);
-// 	return (0);
-// }
-
-// int	dfs_collect(int i, size_t j, t_track *bt, int *dic)
-// {
-// 	int	dir;
-
-// 	// printf("point(%zu, %d)\n",j, i);
-// 	if (bt->line[i][j] == 'C')
-// 	{
-// 		bt->x = j;
-// 		bt->y = i;
-// 		return (1);
-// 	}
-// 	dir = 0;
-// 	while (dir < 4)
-// 	{
-// 		// printf("  dic: %d %d %d %d\n", dic[0], dic[1], dic[2], dic[3]);
-// 		if (can_go(dir, (size_t)i, j, bt) && dic[dir] != 1)
-// 		{
-// 			if (dfs_collect(i, j, bt, dic))
-// 				return (1);
-// 		}
-// 		dir++;
-// 	}
-// 	bt->line[i][j] = 'x';
-// 	init_dic(dic);
-// 	return (0);
-// }
 
 static	int	go_next(int dir, int *nij, t_track *bt)
 {

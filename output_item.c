@@ -6,11 +6,13 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:37:37 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 14:19:27 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:59:36 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	put_item(t_solong *solong, void *item, int w, int h);
 
 void	output_item(t_solong *solong)
 {
@@ -41,7 +43,7 @@ void	output_item(t_solong *solong)
 	}
 }
 
-void	put_item(t_solong *solong, void *item, int w, int h)
+static void	put_item(t_solong *solong, void *item, int w, int h)
 {
 	mlx_put_image_to_window(solong->mlx, solong->win, item, w, h);
 }

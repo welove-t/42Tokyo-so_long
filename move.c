@@ -6,19 +6,13 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:19:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 14:19:43 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:59:02 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	judge_clear(t_solong *sl, int next_y, int next_x)
-{
-	sl->line[sl->y][sl->x] = '0';
-	sl->line[next_y][next_x] = 'N';
-	if (sl->c_cnt == 0)
-		sl->clear = true;
-}
+static void	judge_clear(t_solong *sl, int next_y, int next_x);
 
 void	move_w(t_solong *sl, char point)
 {
@@ -110,4 +104,12 @@ void	move_a(t_solong *sl, char point)
 	else if (c == 'E')
 		judge_clear(sl, sl->y, sl->x - 1);
 	init_after_move(sl);
+}
+
+static void	judge_clear(t_solong *sl, int next_y, int next_x)
+{
+	sl->line[sl->y][sl->x] = '0';
+	sl->line[next_y][next_x] = 'N';
+	if (sl->c_cnt == 0)
+		sl->clear = true;
 }

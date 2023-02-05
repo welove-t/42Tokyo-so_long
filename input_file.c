@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:21:01 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 12:12:02 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:58:35 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,19 +109,3 @@ int	open_file(char *filepath)
 	}
 	return (fd);
 }
-// void	set_solong_to_bt(t_solong *sl)
-// {
-
-// }
-// char	*gnl_skip_n(int fd)
-// {
-// 	char	*tmp;
-
-// 	tmp = get_next_line(fd);
-// 	while (!ft_strncmp(tmp, "\n", 1))
-// 	{
-// 		free(tmp);
-// 		tmp = get_next_line(fd);
-// 	}
-// 	return (tmp);
-// }

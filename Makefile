@@ -6,7 +6,7 @@
 #    By: terabu <terabu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/29 14:06:56 by terabu            #+#    #+#              #
-#    Updated: 2023/02/04 16:55:15 by terabu           ###   ########.fr        #
+#    Updated: 2023/02/05 15:09:54 by terabu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,6 @@ OBJS = $(SRCS:.c=.o)
 
 PRINTFDIR = ./lib/ft_printf
 GNLDIR = ./lib/get_next_line
-# MLXDIR = ./lib/minilibx-linux
-
 FT_PRINTF =  -L$(PRINTFDIR) -lftprintf
 GNL = -L${GNLDIR}/ -lgnl
 

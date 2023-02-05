@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 14:19:03 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:58:16 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_window(t_solong *s)
 	s->mlx = mlx_init();
 	if (s->mlx == NULL)
 		exit_error(ERROR_MLX);
-	s->win = mlx_new_window(s->mlx, s->win_w, s->win_h, "so_long");
+	s->win = mlx_new_window(s->mlx, s->win_w, s->win_h, "./so_long");
 	if (s->win == NULL)
 		exit_error(ERROR_MLX);
 }
