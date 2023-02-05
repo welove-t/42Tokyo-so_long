@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 11:37:37 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 13:05:14 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:19:27 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	output_item(t_solong *solong)
 {
-	int		i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < solong->row)

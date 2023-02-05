@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 12:08:27 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:18:52 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	check_map(t_map *map)
 
 void	check_rect_wall(char *s, t_map *map, int y)
 {
-	size_t	i;
+	int	i;
 
-	if (map->col != ft_strlen(s) - 1)
+	if (map->col != (int)ft_strlen(s) - 1)
 		error_map(map->line, map->row, ERROR_RECT);
 	if (y == 0 || y == map->end_row)
 	{

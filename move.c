@@ -6,13 +6,13 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 08:19:54 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/01 17:06:16 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:19:43 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	judge_clear(t_solong *sl, int next_y, size_t next_x)
+static void	judge_clear(t_solong *sl, int next_y, int next_x)
 {
 	sl->line[sl->y][sl->x] = '0';
 	sl->line[next_y][next_x] = 'N';

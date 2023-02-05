@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:23:02 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 13:40:25 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:19:03 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	init_item(t_solong *s)
 
 void	init_player(t_solong *s)
 {
-	size_t	x;
-	int		y;
-	int		flg;
+	int	x;
+	int	y;
+	int	flg;
 
 	y = 0;
 	flg = 0;

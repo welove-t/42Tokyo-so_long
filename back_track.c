@@ -6,18 +6,18 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 08:18:41 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/04 12:43:50 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:22:35 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	go_next(int dir, size_t *nij, t_track *bt);
+static int	go_next(int dir, int *nij, t_track *bt);
 
-int	dfs_goal(int i, size_t j, t_track *bt)
+int	dfs_goal(int i, int j, t_track *bt)
 {
-	int		dir;
-	size_t	nij[2];
+	int	dir;
+	int	nij[2];
 
 	if (bt->line[i][j] == 'E')
 		return (1);
@@ -25,7 +25,7 @@ int	dfs_goal(int i, size_t j, t_track *bt)
 	dir = 0;
 	while (dir < 4)
 	{
-		nij[0] = (size_t)i;
+		nij[0] = i;
 		nij[1] = j;
 		if (go_next(dir, nij, bt) != -1)
 		{
@@ -37,10 +37,10 @@ int	dfs_goal(int i, size_t j, t_track *bt)
 	return (0);
 }
 
-int	dfs_collect(int i, size_t j, t_track *bt)
+int	dfs_collect(int i, int j, t_track *bt)
 {
-	int		dir;
-	size_t	nij[2];
+	int	dir;
+	int	nij[2];
 
 	if (bt->line[i][j] == 'C')
 	{
@@ -52,7 +52,7 @@ int	dfs_collect(int i, size_t j, t_track *bt)
 	dir = 0;
 	while (dir < 4)
 	{
-		nij[0] = (size_t)i;
+		nij[0] = i;
 		nij[1] = j;
 		if (go_next(dir, nij, bt) != -1)
 		{
@@ -123,7 +123,7 @@ int	dfs_collect(int i, size_t j, t_track *bt)
 // 	return (0);
 // }
 
-static	int	go_next(int dir, size_t *nij, t_track *bt)
+static	int	go_next(int dir, int *nij, t_track *bt)
 {
 	if (dir == 0)
 	{

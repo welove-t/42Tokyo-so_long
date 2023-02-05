@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:27:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 13:41:08 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 14:17:43 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_solong{
 	char	*filepath;
 	char	**line;
 	int		row;
-	size_t	col;
+	int		col;
 	int		x;
 	int		y;
 	int		m_cnt;
@@ -105,7 +105,7 @@ typedef struct s_map{
 	int		end_row;
 	int		c_cnt;
 	int		row;
-	size_t	col;
+	int		col;
 }	t_map;
 
 typedef struct s_track{
@@ -128,8 +128,8 @@ void	check_playable(t_solong *sl);
 void	check_goal(t_solong *sl);
 void	check_collect(t_solong *sl);
 void	init_dic(int *dic);
-int		dfs_goal(int i, size_t j, t_track *bt);
-int		dfs_collect(int i, size_t j, t_track *bt);
+int		dfs_goal(int i, int j, t_track *bt);
+int		dfs_collect(int i, int j, t_track *bt);
 
 // input file
 void	input_file(t_map *map, char *filepath);
