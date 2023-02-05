@@ -6,7 +6,7 @@
 /*   By: terabu <terabu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:43:12 by terabu            #+#    #+#             */
-/*   Updated: 2023/02/05 10:46:54 by terabu           ###   ########.fr       */
+/*   Updated: 2023/02/05 12:08:27 by terabu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	check_item(char *s, t_map *map, int y)
 			i_cnt[1] += 1;
 		s++;
 	}
-	if (y == map->end_row)
+	if (y + map->start_row == map->end_row)
 	{
 		if (map->c_cnt == 0)
 			error_map(map->line, map->row, ERROR_COLLECT);
